@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Images from './components/Imagesdasdsas.vue';
+import Images from './components/Images.vue';
 </script>
 
 <template>
