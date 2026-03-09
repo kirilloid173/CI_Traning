@@ -9,17 +9,14 @@ const cropsCoords = ref<number[][]>([
     [885, 0], // Четвертая координата
 ]);
 // Каждый crop имеет координаты, [x, y]
-function showImage(e: FileList) {
-    const imageForm = e.target.files[0];
-
-    const reader = new FileReader();
-
-    reader.onload = (t) => {
-        imageSrc.value = t.target.result;
-    };
-
-    reader.readAsDataURL(imageForm);
-}
+// function showImage(e: FileList) {
+    // const imageForm = e.target.files[0];
+    // const reader = new FileReader();
+    // reader.onload = (t) => {
+    // imageSrc.value = t.target.result;
+    // };
+    // reader.readAsDataURL(imageForm);
+// }
 // cropNumber = какой именно crop, первый, второй и так далее.
 function moveCrop(cropNumber: 1 | 2 | 3 | 4) {
     const coordinateCrop = cropsCoords.value[cropNumber - 1];
@@ -33,13 +30,7 @@ function showCoordinatesAllCrops() {
 
 <template>
     <p class="title">Загрузите ваше изображение</p>
-    <input
-        class="input-form"
-        type="file"
-        name="image-src"
-        id="image-src"
-        @change="showImage($event)"
-    />
+    <input class="input-form" type="file" name="image-src" id="image-src" />
     <div class="viewport-image">
         <div class="image-crop">
             <span @mousedown="moveCrop(1)" class="crop first-crop"></span
