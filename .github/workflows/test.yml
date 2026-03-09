@@ -15,22 +15,22 @@ jobs:
             - name: build project
               run: npm run build
             - name: upload build data
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v4
               with:
                   name: build_data
                   path: build
-    print_info:
+   # print_info:
+    #    runs-on: ubuntu-latest
+     #   needs: test
+      #  steps:
+       #     - name: show_env_data
+        #      run: echo "${{ toJSON(github) }}"
+    deploy_server:
         runs-on: ubuntu-latest
         needs: test
         steps:
-            - name: show_env_data
-              run: echo "${{ toJSON(github) }}"
-    deploy_server:
-        runs-on: ubuntu-latest
-        needs: print_info
-        steps:
             - name: download_build_data
-              uses: actions/download-artifact@v6
+              uses: actions/download-artifact@v4
               with:
                   name: build_data
             - name: show_data
