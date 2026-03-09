@@ -27,7 +27,7 @@ jobs:
               run: echo "${{ toJSON(github) }}"
     deploy_server:
         runs-on: ubuntu-latest
-        needs: test
+        needs: print_info
         steps:
             - name: download_build_data
               uses: actions/download-artifact@v4
