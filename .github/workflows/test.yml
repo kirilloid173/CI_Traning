@@ -31,7 +31,5 @@ jobs:
         steps:
             - name: download_build_data
               uses: actions/download-artifact@v4
-              with:
-                  name: build_data
             - name: show_data
               run: ls
